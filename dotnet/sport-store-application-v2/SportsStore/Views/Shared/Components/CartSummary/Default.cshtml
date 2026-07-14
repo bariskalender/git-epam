@@ -1,0 +1,19 @@
+@model Cart
+
+<div class="text-end text-white">
+
+    @if (Model?.Lines?.Count > 0)
+    {
+        <small class="navbar-text">
+            <b>Your cart:</b>
+            @Model.Lines.Sum(x => x.Quantity) item(s)
+            @Model.ComputeTotalValue().ToString("c")
+        </small>
+    }
+
+    <a class="btn btn-sm btn-secondary"
+       href="/Cart">
+        Cart
+    </a>
+
+</div>

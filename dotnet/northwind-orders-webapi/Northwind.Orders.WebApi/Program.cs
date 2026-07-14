@@ -1,0 +1,37 @@
+using Microsoft.EntityFrameworkCore;
+using Northwind.Orders.WebApi.Services;
+using Northwind.Services.EntityFramework.Entities;
+using Northwind.Services.EntityFramework.Repositories;
+using Northwind.Services.Repositories;
+
+var builder = WebApplication.CreateBuilder(args);
+
+var sqliteDatabaseFile = builder.Configuration.GetValue<string?>("SQLiteDatabaseFile", null) ?? throw new InvalidOperationException("The `SQLiteDatabaseFile` configuration setting is not set.");
+var connectionString = builder.Configuration.GetConnectionString("NorthwindDatabase") ?? throw new InvalidOperationException("The `NorthwindDatabase` connection string is not set.");
+
+if (File.Exists(sqliteDatabaseFile))
+{
+    File.Delete(sqliteDatabaseFile);
+}
+
+using var databaseService = new DatabaseService(connectionString);
+databaseService.InitializeDatabase();
+
+builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlite(connectionString));
+builder.Services.AddControllers();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    _ = app.UseSwagger();
+    _ = app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.Run();

@@ -1,0 +1,12 @@
+Task 12. Correlated subqueries advanced.
+
+ChatGPT was used to generate SQL SELECT queries for this task.
+The generated queries were reviewed and saved into sql_queries/task1.sql, sql_queries/task2.sql and sql_queries/task3.sql.
+
+--------------------------------------------------
+
+As software developers, we need to know how to use AI effectively to stay competitive.
+Correct prompt = correct result.
+Although it may seem that AI will replace our jobs in the future, in reality it acts more like an assistant that helps us.
+At the moment, AI still cannot think or be creative like a human.
+AI and humans complement each other.

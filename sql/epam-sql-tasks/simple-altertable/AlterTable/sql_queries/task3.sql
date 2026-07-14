@@ -1,0 +1,2 @@
+﻿ALTER TABLE supermarket
+ADD COLUMN area NUMERIC;
