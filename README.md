@@ -25,4 +25,4 @@ These projects are good candidates for separate portfolio repositories later:
 
 ## Notes
 
-Build outputs, local IDE files, package caches, binaries, and temporary files are intentionally excluded from the repository. The goal is to keep only the source code, SQL scripts, project files, and documentation needed to review the EPAM trainee program work.
+Build outputs, local IDE files, package caches, binaries, and temporary files are intentionally excluded from the repository. The purpose is to keep only the source code, SQL scripts, project files, and documentation needed to review the working of the EPAM intern program and demonstrate my learned process
